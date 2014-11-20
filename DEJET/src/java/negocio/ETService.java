@@ -93,6 +93,8 @@ public class ETService {
             else
             {
                 mensaje="Auto Ingresado";
+                AutoDAO aDAO = new AutoDAO(cnx);
+                aDAO.setAuto(auto);
             }
         } 
         else
