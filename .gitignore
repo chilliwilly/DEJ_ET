@@ -17,7 +17,7 @@ $RECYCLE.BIN/
 # =========================
 # NETBEANS
 # =========================
-nbproject/*
+DEJET/nbproject/*
 # =========================
 # Operating System Files
 # =========================
