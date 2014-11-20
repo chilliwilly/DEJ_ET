@@ -65,4 +65,17 @@ public class AutoDAO {
             throw new RuntimeException("Error al Buscar Patentes", ex);
         }
     }
+    
+    public void setAuto(Automovil a)
+    {
+    String sql = "INSERT INTO AUTOMOVIL(PATENTE, ID_MARCA, AÑO, COLOR, AIRE, AIRBAG, ABS) values(?,?,?,?,?,?,?)";
+        try (PreparedStatement stmt = cnx.prepareStatement(sql)){
+            //stmt.setInt(1, rifa.getNro());
+            //stmt.setString(2, rifa.getNombre());
+            stmt.executeUpdate();
+            
+        } catch (Exception ex) {
+            throw new RuntimeException("Error al Crear Rifa", ex);
+        }
+    }
 }

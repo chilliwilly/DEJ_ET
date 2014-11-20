@@ -15,7 +15,7 @@
                     <td>Patente</td>
                     <td>:</td>
                     <td>
-                        <input type="text" maxlength="6" required="true" name="txtPatente"
+                        <input type="text" style="text-transform: uppercase;" maxlength="6" required="true" name="txtPatente"
                                placeholder="Ingrese Patente">
                     </td>
                 </tr>

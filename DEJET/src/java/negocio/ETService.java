@@ -4,6 +4,8 @@ import dao.*;
 import estructura.*;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ETService {
     private Connection cnx;
@@ -58,9 +60,7 @@ public class ETService {
     
     public boolean validaTextoPatente(String patente_in)
     {
-        boolean valida=true;//cambiar a false
-        
-        return valida;
+        return patente_in.matches("[BCDFGHJKLPRSTVWXYZ]{4}[0-9]{2}");
     }
     
     public boolean validaExistePatente(String patente_in)
