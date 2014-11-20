@@ -7,6 +7,7 @@
         <title>Buscar Marca</title>
     </head>
     <body>
+        <%@include file="WEB-INF/menu.jspf" %>
         <form action="<c:url value="/ListarServlet"/>" method="post">
             <table>
                 <tr>
@@ -40,7 +41,7 @@
             <c:forEach items="${alista}" var="la">
                 <tr>
                     <td><c:out value="${la.patente}"/></td>
-                    <td><c:out value="${la.id_marca}"/></td>
+                    <td><c:out value="${la.marca}"/></td>
                     <td><c:out value="${la.anio}"/></td>
                     <td><c:out value="${la.color}"/></td>
                     <td><c:out value="${la.vaire}"/></td>

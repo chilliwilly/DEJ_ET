@@ -33,7 +33,7 @@ public class ETService {
         {
             Automovil am = new Automovil();
             am.setPatente(auto.getPatente());
-            am.setId_marca(auto.getId_marca());
+            am.setMarca(auto.getMarca());
             am.setAnio(auto.getAnio());
             am.setColor(auto.getColor());
             if(!auto.isAire())
@@ -54,5 +54,51 @@ public class ETService {
             a.add(am);
         }
         return a;
+    }
+    
+    public boolean validaTextoPatente(String patente_in)
+    {
+        boolean valida=true;//cambiar a false
+        
+        return valida;
+    }
+    
+    public boolean validaExistePatente(String patente_in)
+    {
+        boolean valida=false;        
+        AutoDAO aDAO = new AutoDAO(cnx);
+        
+        for(String p: aDAO.getPatente())
+        {
+            if(p.equals(patente_in))
+            {
+                valida=true;
+                break;
+            }
+        }
+        
+        return valida;
+    }
+    
+    public String validaPatente(Automovil auto)
+    {
+        String mensaje = "";
+        
+        if(validaTextoPatente(auto.getPatente()))
+        {
+            if(validaExistePatente(auto.getPatente()))
+            {
+                mensaje="Patente ya ha sido ingresada";
+            }
+            else
+            {
+                mensaje="Auto Ingresado";
+            }
+        } 
+        else
+        {
+            mensaje = "Patente no es valida";
+        }
+        return mensaje;
     }
 }

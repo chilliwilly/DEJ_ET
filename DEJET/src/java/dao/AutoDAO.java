@@ -29,7 +29,7 @@ public class AutoDAO {
                 {
                     Automovil auto = new Automovil();
                     auto.setPatente(rs.getString("PATENTE"));
-                    auto.setId_marca(rs.getString("DESCRIPCION_MARCA"));
+                    auto.setMarca(rs.getString("DESCRIPCION_MARCA"));
                     auto.setAnio(rs.getInt("AÑO"));
                     auto.setColor(rs.getString("COLOR"));
                     auto.setAire(rs.getBoolean("AIRE"));
@@ -42,6 +42,27 @@ public class AutoDAO {
             
         } catch (Exception ex) {
             throw new RuntimeException("Error al Buscar Marca", ex);
+        }
+    }
+    
+    public ArrayList<String> getPatente()
+    {
+        ArrayList<String> listado = new ArrayList<>();
+        
+        String sql = "SELECT PATENTE FROM AUTOMOVIL;";
+        try (PreparedStatement stmt = cnx.prepareStatement(sql)){
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            while(rs.next())
+            {
+                String patente = rs.getString("PATENTE");
+                listado.add(patente);
+            }
+
+            return listado;
+            
+        } catch (Exception ex) {
+            throw new RuntimeException("Error al Buscar Patentes", ex);
         }
     }
 }

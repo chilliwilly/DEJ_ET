@@ -2,12 +2,13 @@ package estructura;
 
 public class Automovil {
     private String patente;
-    private String id_marca;
+    private int id_marca;
     private int anio;
     private String color;
     private boolean aire;
     private boolean airbag;
     private boolean abs;
+    private String marca;
     private String vaire;
     private String vairbag;
     private String vabs;
@@ -15,7 +16,7 @@ public class Automovil {
     public Automovil() {
     }
 
-    public Automovil(String patente, String id_marca, int anio, String color, boolean aire, boolean airbag, boolean abs) {
+    public Automovil(String patente, int id_marca, int anio, String color, boolean aire, boolean airbag, boolean abs) {
         this.patente = patente;
         this.id_marca = id_marca;
         this.anio = anio;
@@ -25,7 +26,7 @@ public class Automovil {
         this.abs = abs;
     }    
 
-    public Automovil(String patente, String id_marca, int anio, String color, String vaire, String vairbag, String vabs) {
+    public Automovil(String patente, int id_marca, int anio, String color, String vaire, String vairbag, String vabs) {
         this.patente = patente;
         this.id_marca = id_marca;
         this.anio = anio;
@@ -34,6 +35,24 @@ public class Automovil {
         this.vairbag = vairbag;
         this.vabs = vabs;
     }    
+
+    public Automovil(String patente, String marca, int anio, String color, boolean aire, boolean airbag, boolean abs) {
+        this.patente = patente;
+        this.marca = marca;
+        this.anio = anio;
+        this.color = color;
+        this.aire = aire;
+        this.airbag = airbag;
+        this.abs = abs;        
+    }   
+    
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
     
     public String getVaire() {
         return vaire;
@@ -67,11 +86,11 @@ public class Automovil {
         this.patente = patente;
     }
 
-    public String getId_marca() {
+    public int getId_marca() {
         return id_marca;
     }
 
-    public void setId_marca(String id_marca) {
+    public void setId_marca(int id_marca) {
         this.id_marca = id_marca;
     }
 
