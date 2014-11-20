@@ -70,8 +70,13 @@ public class AutoDAO {
     {
     String sql = "INSERT INTO AUTOMOVIL(PATENTE, ID_MARCA, AÑO, COLOR, AIRE, AIRBAG, ABS) values(?,?,?,?,?,?,?)";
         try (PreparedStatement stmt = cnx.prepareStatement(sql)){
-            //stmt.setInt(1, rifa.getNro());
-            //stmt.setString(2, rifa.getNombre());
+            stmt.setString(1, a.getPatente());
+            stmt.setInt(2, a.getId_marca());
+            stmt.setInt(3, a.getAnio());
+            stmt.setString(4, a.getColor());
+            stmt.setBoolean(5, a.isAire());
+            stmt.setBoolean(6, a.isAirbag());
+            stmt.setBoolean(7, a.isAbs());
             stmt.executeUpdate();
             
         } catch (Exception ex) {
