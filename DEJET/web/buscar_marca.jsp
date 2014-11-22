@@ -8,15 +8,18 @@
     </head>
     <body>
         <%@include file="WEB-INF/menu.jspf" %>
-        <form action="<c:url value="/ListarServlet"/>" method="post">
+        <form action="<c:url value="/ListarServlet"/>" method="get">
             <table>
                 <tr>
                     <td>Seleccione Marca</td>
                     <td>:</td>
                     <td>
                         <select name="cboMarca">
-                            <c:forEach items="${lista}" var="lm">
-                                <option value="${lm.id_marca}"><c:out value="${lm.descrip_marca}"/></option>
+                            <option value="">Seleccione</option>
+                            <c:forEach items="${lista}" var="lm">                                
+                                <option value="${lm.id_marca}" ${param.cboMarca == lm.id_marca ? "SELECTED" : ""}>
+                                    <c:out value="${lm.descrip_marca}"/>
+                                </option>
                             </c:forEach>                            
                         </select>
                     </td>

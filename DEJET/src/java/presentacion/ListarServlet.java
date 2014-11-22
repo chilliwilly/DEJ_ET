@@ -22,9 +22,18 @@ public class ListarServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try (Connection cnx = ds.getConnection()){            
+            throws ServletException, IOException {        
+        
+        try (Connection cnx = ds.getConnection()){   
+            String marcaid = request.getParameter("cboMarca");
             ETService service = new ETService(cnx);
+            
+            if(marcaid != null && !marcaid.isEmpty())
+            {
+                int marca_id = Integer.parseInt(request.getParameter("cboMarca"));
+                ArrayList<Automovil> a = service.getAutos(marca_id);
+                request.setAttribute("alista",a);
+            }
             
             ArrayList<Marca> m = service.getMarca();
             request.setAttribute("lista",m);
@@ -32,26 +41,6 @@ public class ListarServlet extends HttpServlet {
             
         } catch (Exception ex) {
             throw new RuntimeException("Error Get", ex);
-        }
-    }
-    
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        int marca_id = Integer.parseInt(request.getParameter("cboMarca"));
-        
-        try (Connection cnx = ds.getConnection()){            
-            ETService service = new ETService(cnx);
-            
-            ArrayList<Marca> m = service.getMarca();           
-            
-            ArrayList<Automovil> a = service.getAutos(marca_id);
-            request.setAttribute("alista",a);
-            request.setAttribute("lista",m);
-            request.getRequestDispatcher("/buscar_marca.jsp").forward(request, response);
-            
-        } catch (Exception ex) {
-            throw new RuntimeException("Error Post", ex);
         }
     }
 }
