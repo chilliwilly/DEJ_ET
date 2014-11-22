@@ -9,9 +9,6 @@ public class Automovil {
     private boolean airbag;
     private boolean abs;
     private String marca;
-    private String vaire;
-    private String vairbag;
-    private String vabs;
 
     public Automovil() {
     }
@@ -24,17 +21,7 @@ public class Automovil {
         this.aire = aire;
         this.airbag = airbag;
         this.abs = abs;
-    }    
-
-    public Automovil(String patente, int id_marca, int anio, String color, String vaire, String vairbag, String vabs) {
-        this.patente = patente;
-        this.id_marca = id_marca;
-        this.anio = anio;
-        this.color = color;
-        this.vaire = vaire;
-        this.vairbag = vairbag;
-        this.vabs = vabs;
-    }    
+    }  
 
     public Automovil(String patente, String marca, int anio, String color, boolean aire, boolean airbag, boolean abs) {
         this.patente = patente;
@@ -52,30 +39,6 @@ public class Automovil {
 
     public void setMarca(String marca) {
         this.marca = marca;
-    }
-    
-    public String getVaire() {
-        return vaire;
-    }
-
-    public void setVaire(String vaire) {
-        this.vaire = vaire;
-    }
-
-    public String getVairbag() {
-        return vairbag;
-    }
-
-    public void setVairbag(String vairbag) {
-        this.vairbag = vairbag;
-    }
-
-    public String getVabs() {
-        return vabs;
-    }
-
-    public void setVabs(String vabs) {
-        this.vabs = vabs;
     }
     
     public String getPatente() {
