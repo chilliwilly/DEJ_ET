@@ -9,14 +9,14 @@
     <body>
         <%@include file="WEB-INF/menu.jspf" %>
         <h1>Ingreso Nuevo Vehiculo</h1>
-        <form action="<c:url value="/IngresarServlet"/>" method="post">
+        <form action="<c:url value="/IngresarServlet"/>" method="post" id="form-ingreso">
             <table>
                 <tr>
                     <td>Patente</td>
                     <td>:</td>
                     <td>
                         <input type="text" style="text-transform: uppercase;" maxlength="6" required="true" name="txtPatente"
-                               placeholder="Ingrese Patente">
+                               placeholder="Ingrese Patente" pattern="[BCDFGHJKLPRSTVWXYZ]{4}[0-9]{2}" title="No se aceptan estos caracteres A E I M N Ñ O Q U">
                     </td>
                 </tr>
                 <tr>
@@ -24,6 +24,7 @@
                     <td>:</td>
                     <td>
                         <select name="cboMarca">
+                            <option value="">Seleccione</option>
                             <c:forEach items="${lista}" var="lm">
                                 <option value="${lm.id_marca}"><c:out value="${lm.descrip_marca}"/></option>
                             </c:forEach>                            
